@@ -15,6 +15,7 @@ export default StyleSheet.create({
     shadowOffset: {
       height: 2
     },
+    zIndex: 10,
   },
   success: {
     backgroundColor: '#2689FA'

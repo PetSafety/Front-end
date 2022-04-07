@@ -7,49 +7,49 @@ import PetCard from "./src/components/PetCard";
 import Chip from "./src/components/Chip";
 import StaticChip from "./src/components/StaticChip";
 import Snackbar from "./src/components/Snackbar";
+import {NotificationProvider} from "./src/context/notification.context";
 
 
 export default function App() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View>
-          <Text>Buttons</Text>
-          <CustomButton title="Default" />
-          <CustomButton title="Disabled" disabled />
-          <CustomButton title="GhostWarning" type="ghostWarning" />
-          <CustomButton title="Ghost" type="ghost" />
+    <NotificationProvider>
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            <Text>Buttons</Text>
+            <CustomButton title="Default" />
+            <CustomButton title="Disabled" disabled />
+            <CustomButton title="GhostWarning" type="ghostWarning" />
+            <CustomButton title="Ghost" type="ghost" />
+          </View>
+          <View>
+            <Text>PetCard</Text>
+            <PetCard />
+          </View>
+          <View>
+            <Text>Tipografia</Text>
+            <CustomText type="headline1" content="headline1" />
+            <CustomText type="headline2" content="headline2" />
+            <CustomText type="subtitle1" content="subtitle1" />
+            <CustomText type="subtitle2" content="subtitle2" />
+            <CustomText type="body" content="body" />
+            <CustomText type="caption" content="caption" />
+          </View>
+          <View>
+            <Text>Chip statico</Text>
+            <StaticChip label="Cachorro" />
+          </View>
+          <View>
+            <Text>Chip</Text>
+            <Chip
+              initialChips={["Ordernar mais recentes", "Ordenar mais antigas"]}
+              onChangeChips={(chips) => console.log(chips)}
+            />
+          </View>
+        
         </View>
-        <View>
-          <Text>PetCard</Text>
-          <PetCard />
-        </View>
-        <View>
-          <Text>Tipografia</Text>
-          <CustomText type="headline1" content="headline1" />
-          <CustomText type="headline2" content="headline2" />
-          <CustomText type="subtitle1" content="subtitle1" />
-          <CustomText type="subtitle2" content="subtitle2" />
-          <CustomText type="body" content="body" />
-          <CustomText type="caption" content="caption" />
-        </View>
-        <View>
-          <Text>Chip statico</Text>
-          <StaticChip label="Cachorro" />
-        </View>
-        <View>
-          <Text>Chip</Text>
-          <Chip
-            initialChips={["Ordernar mais recentes", "Ordenar mais antigas"]}
-            onChangeChips={(chips) => console.log(chips)}
-          />
-        </View>
-        <View>
-          <Text>Snackbar</Text>
-          <Snackbar type="error" text="Erro ao agendar sua PetSafety"/>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </NotificationProvider>
   );
 }
 
