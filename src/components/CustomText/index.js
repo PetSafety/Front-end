@@ -13,11 +13,11 @@ const CustomText = ({ type, styles, content }) => {
         return defaultStyles.subtitle1;
       case "subtitle2":
         return defaultStyles.subtitle2;
-      case "body":
-        return defaultStyles.body;
       case "caption":
-      default:
         return defaultStyles.caption;
+      case "body":
+      default:
+        return defaultStyles.body;
     }
   };
 

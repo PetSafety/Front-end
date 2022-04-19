@@ -10,9 +10,13 @@ export default StyleSheet.create({
     marginVertical: 4,
   },
   disabled: { backgroundColor: "#656565" },
-  ghost: { backgroundColor: "#fff", borderColor: "#2689FA", borderWidth: 4 },
+  ghost: {
+    backgroundColor: "transparent",
+    borderColor: "#2689FA",
+    borderWidth: 4,
+  },
   ghostWarning: {
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     borderColor: "#E12E2E",
     borderWidth: 4,
   },

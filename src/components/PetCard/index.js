@@ -5,15 +5,7 @@ import CustomText from "../CustomText";
 import StaticChip from "../StaticChip";
 import styles from "./styles";
 
-const infoDummy = {
-  dogName: "Maju",
-  date: new Date(),
-  destiny: "Brasilia - Fortaleza",
-  status: "Inicio pendente",
-  type: "Cachorro",
-};
-
-const PetCard = ({ info = infoDummy }) => {
+const PetCard = ({ info, cancelHandle, confirmHandle }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -41,11 +33,13 @@ const PetCard = ({ info = infoDummy }) => {
           title="Cancelar"
           type="ghostWarning"
           containerStyles={{ width: "46%" }}
+          onPress={cancelHandle}
         />
         <CustomButton
           title="Iniciar"
           type="ghost"
           containerStyles={{ width: "46%" }}
+          onPress={confirmHandle}
         />
       </View>
     </View>

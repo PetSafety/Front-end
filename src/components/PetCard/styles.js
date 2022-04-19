@@ -10,6 +10,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 5,
     borderRadius: 10,
+    marginBottom: 35,
   },
   header: {
     flexDirection: "row",
