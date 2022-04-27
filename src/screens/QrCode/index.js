@@ -1,9 +1,25 @@
-import { ScrollView, View, Text, SafeAreaView } from "react-native";
+import { ScrollView, View, Text, SafeAreaView, Button } from "react-native";
 import styles from "./styles";
 import CustomText from "../../components/CustomText";
 import CustomButton from "../../components/CustomButton";
+import { useEffect, useState } from "react";
+import { BarCodeScanner } from "expo-barcode-scanner";
 
 const QrCode = () => {
+  const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      setHasPermission(status === "granted");
+    })();
+  }, []);
+
+  const handleBarCodeScanned = ({ type, data }) => {
+    setScanned(true);
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -16,9 +32,15 @@ const QrCode = () => {
       </View>
 
       <View>
-        <CustomText content="QRCode" />
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        />
       </View>
-      <CustomButton type="ghost" title="Inserir código manualmente" />
+      <CustomButton
+        type="ghost"
+        title="Escaniar novamente"
+        onPress={() => setScanned(false)}
+      />
     </View>
   );
 };

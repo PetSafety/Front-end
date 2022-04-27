@@ -14,10 +14,6 @@ const infoDummy = {
 };
 
 const Trips = () => {
-  useEffect(() => {
-    console.log(refChip);
-  });
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -28,18 +24,11 @@ const Trips = () => {
         <CustomText type="headline1" content="Histórico de viagens" />
         <Chip
           initialChips={["Mais recentes", "Mais antigas"]}
-          onChangeChips={(chips) => {
-            console.log(refChip);
-          }}
+          onChangeChips={(chips) => {}}
         />
       </View>
       <ScrollView>
-        <PetCard
-          info={infoDummy}
-          cancelHandle={() => {
-            console.log(refChip);
-          }}
-        />
+        <PetCard info={infoDummy} cancelHandle={() => {}} />
         <PetCard info={infoDummy} />
       </ScrollView>
     </SafeAreaView>
